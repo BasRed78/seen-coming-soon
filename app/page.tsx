@@ -5,16 +5,35 @@ import React, { useState } from 'react';
 export default function ComingSoonPage() {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMsg, setErrorMsg] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
-    setStatus('loading');
     
-    setTimeout(() => {
-      setStatus('success');
-      setEmail('');
-    }, 500);
+    setStatus('loading');
+    setErrorMsg('');
+    
+    try {
+      const res = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      
+      const data = await res.json();
+      
+      if (res.ok) {
+        setStatus('success');
+        setEmail('');
+      } else {
+        setStatus('error');
+        setErrorMsg(data.error || 'Something went wrong');
+      }
+    } catch (err) {
+      setStatus('error');
+      setErrorMsg('Connection error. Please try again.');
+    }
   };
 
   return (
@@ -154,6 +173,9 @@ export default function ComingSoonPage() {
               >
                 {status === 'loading' ? 'Joining...' : 'Notify me'}
               </button>
+              {status === 'error' && (
+                <p style={{ color: '#ff6b5b', fontSize: 14 }}>{errorMsg}</p>
+              )}
             </div>
           </form>
         )}
