@@ -46,12 +46,13 @@ export default function ComingSoonPage() {
       />
 
       <div className="max-w-lg w-full text-center relative z-10">
-        <div className="flex items-center justify-center gap-3 mb-12">
-          <StarIcon size={28} />
-          <span className="text-4xl font-black tracking-tight" style={{ color: colors.cream }}>Seen</span>
+        <div className="flex items-center justify-center gap-3 mb-6">
+          <StarIcon size={24} />
+          <span className="text-5xl md:text-6xl font-black tracking-tight" style={{ color: colors.cream }}>Seen</span>
+          <StarIcon size={24} />
         </div>
 
-        <h1 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: colors.cream }}>
+        <h1 className="text-2xl md:text-3xl font-medium mb-8" style={{ color: colors.cream, opacity: 0.8 }}>
           See the pattern. Break the cycle.
         </h1>
 
