@@ -27,7 +27,7 @@ export default function ComingSoonPage() {
       padding: '48px 24px',
       position: 'relative',
       overflow: 'hidden',
-      backgroundColor: '#0f0f1a',
+      backgroundColor: '#1a1a2e',
     }}>
       {/* Background gradient */}
       <div style={{
@@ -38,7 +38,7 @@ export default function ComingSoonPage() {
         right: '-10%',
         background: 'radial-gradient(circle, #ff6b5b 0%, transparent 70%)',
         filter: 'blur(100px)',
-        opacity: 0.12,
+        opacity: 0.15,
         pointerEvents: 'none',
       }} />
 
