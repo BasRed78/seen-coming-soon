@@ -45,32 +45,35 @@ export default function ComingSoonPage() {
         }} 
       />
 
-      <div className="max-w-lg w-full text-center relative z-10">
-        <div className="flex items-center justify-center gap-3 mb-6">
-          <StarIcon size={24} />
-          <span className="text-5xl md:text-6xl font-black tracking-tight" style={{ color: colors.cream }}>Seen</span>
-          <StarIcon size={24} />
+      <div className="max-w-2xl w-full relative z-10">
+        {/* Seen logo - larger */}
+        <div className="flex items-center gap-3 mb-10">
+          <StarIcon size={32} />
+          <span className="text-3xl font-black tracking-tight" style={{ color: colors.cream }}>Seen</span>
         </div>
 
-        <h1 className="text-2xl md:text-3xl font-medium mb-8" style={{ color: colors.cream, opacity: 0.8 }}>
-          See the pattern. Break the cycle.
+        {/* Two-line headline matching homepage */}
+        <h1 className="text-5xl md:text-7xl font-black leading-tight mb-6">
+          <span style={{ color: colors.cream }}>See the pattern.</span>
+          <br />
+          <span style={{ color: colors.coral }}>Break the cycle.</span>
         </h1>
 
-        <p className="text-lg mb-4 leading-relaxed" style={{ color: colors.cream, opacity: 0.7 }}>
-          When life gets hard, your brain has a go-to move. Seen helps you understand why — so you can finally do something about it.
+        <p className="text-lg md:text-xl mb-8 leading-relaxed max-w-xl" style={{ color: colors.cream, opacity: 0.7 }}>
+          Everyone develops ways to cope when life gets hard. Some work for a while. Some never did. Seen helps you understand what's really going on — so you can choose, instead of just react.
         </p>
 
-        <p className="text-base mb-10 leading-relaxed" style={{ color: colors.cream, opacity: 0.5 }}>
-          I'm building something I wish had existed for me — a way to see what's really driving your behavior, before things fall apart.
+        <p className="text-base mb-10 leading-relaxed max-w-xl" style={{ color: colors.cream, opacity: 0.5 }}>
+          Coming soon. Join the waitlist to be first to know.
         </p>
 
         {status === 'success' ? (
-          <div className="p-6 rounded-2xl" style={{ backgroundColor: colors.darkLight }}>
+          <div className="p-6 rounded-2xl max-w-md" style={{ backgroundColor: colors.darkLight }}>
             <p className="text-lg font-medium" style={{ color: colors.coral }}>You're on the list ✓</p>
             <p className="text-sm mt-2" style={{ color: colors.cream, opacity: 0.6 }}>I'll let you know when Seen is ready.</p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="max-w-md">
             <div className="flex flex-col sm:flex-row gap-3">
               <input
                 type="email"
@@ -87,13 +90,13 @@ export default function ComingSoonPage() {
                 className="px-8 py-4 rounded-xl font-bold text-base transition-all hover:scale-105 disabled:opacity-50"
                 style={{ backgroundColor: colors.coral, color: colors.cream }}
               >
-                {status === 'loading' ? 'Joining...' : 'Keep me posted'}
+                {status === 'loading' ? 'Joining...' : 'Notify me'}
               </button>
             </div>
           </form>
         )}
 
-        <p className="mt-12 text-base italic" style={{ color: colors.cream, opacity: 0.4 }}>— Bas</p>
+        <p className="mt-16 text-base italic" style={{ color: colors.cream, opacity: 0.4 }}>— Bas</p>
       </div>
     </div>
   );
