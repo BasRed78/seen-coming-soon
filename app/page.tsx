@@ -33,31 +33,63 @@ export default function ComingSoonPage() {
 
   return (
     <div 
-      className="min-h-screen flex flex-col relative overflow-hidden"
-      style={{ backgroundColor: '#0f0f1a' }}
+      style={{ 
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        backgroundColor: '#0f0f1a',
+        position: 'relative',
+        overflow: 'hidden',
+      }}
     >
       {/* Gradient blur decoration - coral "sun" */}
       <div 
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
         style={{
+          position: 'absolute',
+          top: '25%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
           width: '500px',
           height: '500px',
           background: 'radial-gradient(circle, rgba(255, 107, 91, 0.35) 0%, rgba(255, 107, 91, 0.15) 40%, transparent 70%)',
           filter: 'blur(60px)',
+          pointerEvents: 'none',
         }}
       />
 
       {/* Main content */}
-      <main className="flex-1 flex items-center justify-center px-6 py-16 relative z-10">
-        <div className="max-w-lg w-full text-center">
+      <main 
+        style={{ 
+          flex: 1,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '64px 24px',
+          position: 'relative',
+          zIndex: 10,
+        }}
+      >
+        <div style={{ maxWidth: '512px', width: '100%', textAlign: 'center' }}>
           {/* Logo - ONE coral star on left + Seen */}
-          <div className="flex items-center justify-center gap-3 mb-12">
+          <div 
+            style={{ 
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '12px',
+              marginBottom: '48px',
+            }}
+          >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="#ff6b5b">
               <path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z" />
             </svg>
             <span 
-              className="text-4xl font-bold tracking-tight"
-              style={{ color: '#faf8f5' }}
+              style={{ 
+                fontSize: '2.25rem',
+                fontWeight: 700,
+                letterSpacing: '-0.025em',
+                color: '#faf8f5',
+              }}
             >
               Seen
             </span>
@@ -65,23 +97,35 @@ export default function ComingSoonPage() {
 
           {/* Tagline */}
           <p 
-            className="text-lg mb-6 font-medium"
-            style={{ color: '#ff6b5b' }}
+            style={{ 
+              fontSize: '1.125rem',
+              marginBottom: '24px',
+              fontWeight: 500,
+              color: '#ff6b5b',
+            }}
           >
             See the pattern. Break the cycle.
           </p>
 
           {/* Main copy */}
           <p 
-            className="text-lg mb-4 leading-relaxed"
-            style={{ color: 'rgba(250, 248, 245, 0.85)' }}
+            style={{ 
+              fontSize: '1.125rem',
+              marginBottom: '16px',
+              lineHeight: 1.7,
+              color: 'rgba(250, 248, 245, 0.85)',
+            }}
           >
             When life gets hard, your brain has a go-to move. Seen helps you understand why — so you can finally do something about it.
           </p>
 
           <p 
-            className="text-base mb-10 leading-relaxed"
-            style={{ color: 'rgba(250, 248, 245, 0.6)' }}
+            style={{ 
+              fontSize: '1rem',
+              marginBottom: '40px',
+              lineHeight: 1.7,
+              color: 'rgba(250, 248, 245, 0.6)',
+            }}
           >
             I'm building something I wish had existed for me — a way to see what's really driving your behavior, before things fall apart.
           </p>
@@ -89,53 +133,70 @@ export default function ComingSoonPage() {
           {/* Email form */}
           {status === 'success' ? (
             <div 
-              className="rounded-xl p-6"
-              style={{ backgroundColor: '#1a1a2e' }}
+              style={{ 
+                backgroundColor: '#1a1a2e',
+                borderRadius: '12px',
+                padding: '24px',
+              }}
             >
-              <p 
-                className="text-lg font-medium"
-                style={{ color: '#5B8F8F' }}
-              >
+              <p style={{ fontSize: '1.125rem', fontWeight: 500, color: '#5B8F8F' }}>
                 You're in.
               </p>
-              <p 
-                className="text-sm mt-2"
-                style={{ color: 'rgba(250, 248, 245, 0.6)' }}
-              >
+              <p style={{ fontSize: '0.875rem', marginTop: '8px', color: 'rgba(250, 248, 245, 0.6)' }}>
                 I'll let you know when Seen is ready.
               </p>
             </div>
           ) : (
             <form onSubmit={handleSubmit}>
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div 
+                style={{ 
+                  display: 'flex',
+                  flexDirection: 'row',
+                  gap: '12px',
+                  flexWrap: 'wrap',
+                  justifyContent: 'center',
+                }}
+              >
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="your@email.com"
                   required
-                  className="flex-1 px-5 py-4 rounded-xl text-base focus:outline-none focus:ring-2 transition-all"
                   style={{ 
+                    flex: '1 1 250px',
+                    minWidth: '200px',
+                    maxWidth: '300px',
+                    padding: '16px 20px',
+                    borderRadius: '12px',
+                    fontSize: '1rem',
                     backgroundColor: '#1a1a2e',
                     color: '#faf8f5',
                     border: '1px solid #252542',
+                    outline: 'none',
                   }}
                 />
                 <button
                   type="submit"
                   disabled={status === 'loading'}
-                  className="px-6 py-4 rounded-xl font-semibold text-base transition-all hover:opacity-90 disabled:opacity-50"
                   style={{ 
+                    padding: '16px 24px',
+                    borderRadius: '12px',
+                    fontWeight: 600,
+                    fontSize: '1rem',
                     backgroundColor: '#ff6b5b',
                     color: '#faf8f5',
                     border: 'none',
+                    cursor: status === 'loading' ? 'wait' : 'pointer',
+                    opacity: status === 'loading' ? 0.5 : 1,
+                    whiteSpace: 'nowrap',
                   }}
                 >
                   {status === 'loading' ? 'Joining...' : 'Keep me posted'}
                 </button>
               </div>
               {status === 'error' && (
-                <p className="text-sm mt-4" style={{ color: '#ff6b5b' }}>
+                <p style={{ fontSize: '0.875rem', marginTop: '16px', color: '#ff6b5b' }}>
                   Something went wrong. Try again?
                 </p>
               )}
@@ -144,8 +205,12 @@ export default function ComingSoonPage() {
 
           {/* Signature */}
           <p 
-            className="mt-12 text-base italic"
-            style={{ color: 'rgba(250, 248, 245, 0.4)' }}
+            style={{ 
+              marginTop: '48px',
+              fontSize: '1rem',
+              fontStyle: 'italic',
+              color: 'rgba(250, 248, 245, 0.4)',
+            }}
           >
             — Bas
           </p>
@@ -154,36 +219,34 @@ export default function ComingSoonPage() {
 
       {/* Footer */}
       <footer 
-        className="py-8 px-6 text-center relative z-10"
-        style={{ borderTop: '1px solid #252542' }}
+        style={{ 
+          padding: '32px 24px',
+          textAlign: 'center',
+          borderTop: '1px solid #252542',
+          position: 'relative',
+          zIndex: 10,
+        }}
       >
-        <div className="flex items-center justify-center gap-6 text-sm">
-          <Link 
-            href="/terms" 
-            className="transition-opacity hover:opacity-100"
-            style={{ color: 'rgba(250, 248, 245, 0.4)' }}
-          >
+        <div 
+          style={{ 
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '24px',
+            fontSize: '0.875rem',
+          }}
+        >
+          <Link href="/terms" style={{ color: 'rgba(250, 248, 245, 0.4)' }}>
             Terms
           </Link>
-          <Link 
-            href="/privacy" 
-            className="transition-opacity hover:opacity-100"
-            style={{ color: 'rgba(250, 248, 245, 0.4)' }}
-          >
+          <Link href="/privacy" style={{ color: 'rgba(250, 248, 245, 0.4)' }}>
             Privacy
           </Link>
-          <Link 
-            href="/cookies" 
-            className="transition-opacity hover:opacity-100"
-            style={{ color: 'rgba(250, 248, 245, 0.4)' }}
-          >
+          <Link href="/cookies" style={{ color: 'rgba(250, 248, 245, 0.4)' }}>
             Cookies
           </Link>
         </div>
-        <p 
-          className="text-xs mt-4"
-          style={{ color: 'rgba(250, 248, 245, 0.25)' }}
-        >
+        <p style={{ fontSize: '0.75rem', marginTop: '16px', color: 'rgba(250, 248, 245, 0.25)' }}>
           © 2025 Seen. All rights reserved.
         </p>
       </footer>
