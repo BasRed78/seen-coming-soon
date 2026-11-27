@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { SiteFooter, colors } from './components/SiteShell';
+import { PRICES } from './components/business';
 
 export default function ComingSoonPage() {
   const [email, setEmail] = useState('');
@@ -56,6 +58,25 @@ export default function ComingSoonPage() {
           pointerEvents: 'none',
         }}
       />
+
+      {/* Top navigation */}
+      <nav
+        aria-label="Site"
+        style={{
+          position: 'relative',
+          zIndex: 10,
+          display: 'flex',
+          justifyContent: 'flex-end',
+          gap: '20px',
+          padding: '20px 24px',
+          fontSize: '0.9rem',
+          flexWrap: 'wrap',
+        }}
+      >
+        <Link href="/what-seen-is" style={{ color: colors.muted, textDecoration: 'none' }}>What Seen is</Link>
+        <Link href="/pricing" style={{ color: colors.muted, textDecoration: 'none' }}>Pricing</Link>
+        <Link href="/contact" style={{ color: colors.muted, textDecoration: 'none' }}>Contact</Link>
+      </nav>
 
       {/* Main content */}
       <main 
@@ -116,7 +137,7 @@ export default function ComingSoonPage() {
               color: 'rgba(250, 248, 245, 0.85)',
             }}
           >
-            When life gets hard, your brain has a go-to move. Seen helps you understand why — so you can finally do something about it.
+            When life gets hard, your brain has a go-to move. Seen helps you understand why, so you can finally do something about it.
           </p>
 
           <p 
@@ -127,7 +148,7 @@ export default function ComingSoonPage() {
               color: 'rgba(250, 248, 245, 0.6)',
             }}
           >
-            I'm building something I wish had existed for me — a way to see what's really driving your behavior, before things fall apart.
+            I&apos;m building something I wish had existed for me: a way to see what&apos;s really driving your behaviour, before things fall apart.
           </p>
 
           {/* Email form */}
@@ -140,10 +161,10 @@ export default function ComingSoonPage() {
               }}
             >
               <p style={{ fontSize: '1.125rem', fontWeight: 500, color: '#5B8F8F' }}>
-                You're in.
+                You&apos;re in.
               </p>
               <p style={{ fontSize: '0.875rem', marginTop: '8px', color: 'rgba(250, 248, 245, 0.6)' }}>
-                I'll let you know when Seen is ready.
+                I&apos;ll let you know when Seen is ready.
               </p>
             </div>
           ) : (
@@ -212,44 +233,76 @@ export default function ComingSoonPage() {
               color: 'rgba(250, 248, 245, 0.4)',
             }}
           >
-            — Bas
+            Bas, founder
           </p>
         </div>
       </main>
 
-      {/* Footer */}
-      <footer 
-        style={{ 
-          padding: '32px 24px',
-          textAlign: 'center',
-          borderTop: '1px solid #252542',
-          position: 'relative',
-          zIndex: 10,
-        }}
-      >
-        <div 
-          style={{ 
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '24px',
-            fontSize: '0.875rem',
-          }}
-        >
-          <Link href="/terms" style={{ color: 'rgba(250, 248, 245, 0.4)' }}>
-            Terms
-          </Link>
-          <Link href="/privacy" style={{ color: 'rgba(250, 248, 245, 0.4)' }}>
-            Privacy
-          </Link>
-          <Link href="/cookies" style={{ color: 'rgba(250, 248, 245, 0.4)' }}>
-            Cookies
-          </Link>
-        </div>
-        <p style={{ fontSize: '0.75rem', marginTop: '16px', color: 'rgba(250, 248, 245, 0.25)' }}>
-          © 2025 Seen. All rights reserved.
-        </p>
-      </footer>
+      <ProductSections />
+
+      <SiteFooter />
     </div>
+  );
+}
+
+const features = [
+  {
+    title: 'A free pattern quiz',
+    text: 'Fourteen questions about how you react when life gets hard. Your result names which of six stress-response patterns your answers fit most: Withdrawal & Avoidance, Approval Chasing, Substance Soothing, Achievement Hiding, Intimacy Seeking or Compulsive Spending. A pattern describes behaviour. It is never a diagnosis.',
+  },
+  {
+    title: 'Short daily check-ins',
+    text: 'A few minutes a day with an AI that asks open questions and reflects your own words back to you. You always know you are talking to software.',
+  },
+  {
+    title: 'Weekly reflections',
+    text: 'Once a week Seen summarises what you wrote, so you can see what keeps coming back. The summary is for you alone.',
+  },
+  {
+    title: 'A practice space if you are in therapy',
+    text: 'If you already see a therapist, you can choose what you want to practise, plan short exercises, set intentions and write a reflection after a session. We encourage you to tell your therapist you use Seen.',
+  },
+];
+
+function ProductSections() {
+  const sectionTitle = { fontSize: '1.5rem', fontWeight: 700, color: colors.cream, margin: '0 0 24px' } as const;
+  return (
+    <section style={{ position: 'relative', zIndex: 10, padding: '24px 24px 72px' }}>
+      <div style={{ maxWidth: '720px', margin: '0 auto' }}>
+        <h2 style={sectionTitle}>What you get with Seen</h2>
+        <p style={{ color: colors.body, lineHeight: 1.7, margin: '0 0 24px' }}>
+          Seen is self-reflection software for your phone or computer. It helps you notice how you tend to cope with stress, in
+          your own words and at your own pace.
+        </p>
+        <div style={{ display: 'grid', gap: '16px', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
+          {features.map((f) => (
+            <div key={f.title} style={{ backgroundColor: colors.surface, borderRadius: '12px', padding: '20px 24px' }}>
+              <h3 style={{ fontSize: '1.0625rem', fontWeight: 600, color: colors.cream, margin: '0 0 8px' }}>{f.title}</h3>
+              <p style={{ color: colors.muted, lineHeight: 1.6, margin: 0, fontSize: '0.95rem' }}>{f.text}</p>
+            </div>
+          ))}
+        </div>
+
+        <h2 style={{ ...sectionTitle, marginTop: '56px' }}>What Seen is and is not</h2>
+        <div style={{ backgroundColor: colors.surface, borderLeft: `4px solid ${colors.cyan}`, borderRadius: '12px', padding: '20px 24px' }}>
+          <p style={{ color: colors.body, lineHeight: 1.7, margin: '0 0 12px' }}>
+            Seen is a mirror for self-reflection. It gives no medical, psychological or health advice, and it does not diagnose or
+            treat anything. It is no substitute for a doctor, therapist or other professional, and it is not a crisis service.
+          </p>
+          <p style={{ color: colors.body, lineHeight: 1.7, margin: 0 }}>
+            In an emergency, call 112 (EU) or 999 (UK). In the Netherlands you can call 113 or 0800-0113, free and 24/7.{' '}
+            <Link href="/what-seen-is" style={{ color: colors.coral }}>Read the full statement</Link>
+          </p>
+        </div>
+
+        <h2 style={{ ...sectionTitle, marginTop: '56px' }}>Pricing</h2>
+        <p style={{ color: colors.body, lineHeight: 1.7, margin: '0 0 8px' }}>
+          The quiz is free. Founding members pay <strong style={{ color: colors.cream }}>{PRICES.founding.annual} a year</strong> or{' '}
+          <strong style={{ color: colors.cream }}>{PRICES.founding.monthly} a month</strong>, VAT included, and keep that price for
+          as long as they stay subscribed. Full refund within {PRICES.refundDays} days, no questions asked.
+        </p>
+        <Link href="/pricing" style={{ color: colors.coral }}>See plans and what is included</Link>
+      </div>
+    </section>
   );
 }

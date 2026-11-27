@@ -2,8 +2,8 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Seen - Coming Soon',
-  description: 'See the pattern. Break the cycle.',
+  title: 'Seen: see your stress patterns',
+  description: 'Seen is self-reflection software that helps you notice how you cope with stress. A free pattern quiz, short daily check-ins and weekly reflections. No medical advice.',
 }
 
 export const viewport: Viewport = {
