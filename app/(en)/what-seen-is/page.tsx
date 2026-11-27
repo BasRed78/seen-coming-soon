@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { A, ContentPage, CrisisContacts, H2, P, UL } from '../components/SiteShell';
-import { LAST_UPDATED } from '../components/business';
+import { A, ContentPage, CrisisContacts, H2, P, UL } from '@/app/components/SiteShell';
+import { LAST_UPDATED } from '@/app/components/business';
 
 export const metadata: Metadata = {
   title: 'What Seen is and is not | Seen',

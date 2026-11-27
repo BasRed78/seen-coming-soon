@@ -15,6 +15,14 @@ export const BUSINESS = {
   app: 'https://app.seeyourself.today',
 } as const;
 
+// Calls to action. The app is still behind the tester gate, so these only work
+// for the public once the gate change (JRN-18) is live. Both phases enter
+// through the quiz: its therapy question routes people in therapy to Phase 2.
+export const LINKS = {
+  quiz: `${BUSINESS.app}/quiz`,
+  login: `${BUSINESS.app}/login`,
+} as const;
+
 export const PRICES = {
   founding: { monthly: '€6.99', annual: '€59' },
   regular: { monthly: '€9.99', annual: '€79' },

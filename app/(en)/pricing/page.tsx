@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
-import { A, ContentPage, H2, P, UL, colors } from '../components/SiteShell';
-import { PRICES } from '../components/business';
+import { A, ContentPage, H2, P, UL, colors } from '@/app/components/SiteShell';
+import { PRICES } from '@/app/components/business';
 
 export const metadata: Metadata = {
   title: 'Pricing | Seen',
@@ -19,15 +19,15 @@ function PlanCard({ name, price, period, note, highlight, children }: {
   return (
     <div
       style={{
-        backgroundColor: colors.surface,
-        border: `1px solid ${highlight ? colors.coral : colors.surfaceLight}`,
+        backgroundColor: colors.card,
+        border: `1px solid ${highlight ? colors.accent : colors.line}`,
         borderRadius: '16px',
         padding: '28px',
       }}
     >
-      <p style={{ margin: 0, fontWeight: 600, color: highlight ? colors.coral : colors.cream }}>{name}</p>
+      <p style={{ margin: 0, fontWeight: 600, color: highlight ? colors.accent : colors.heading }}>{name}</p>
       <p style={{ margin: '12px 0 4px' }}>
-        <span style={{ fontSize: '2.5rem', fontWeight: 800, color: colors.cream }}>{price}</span>
+        <span style={{ fontSize: '2.5rem', fontWeight: 800, color: colors.heading }}>{price}</span>
         <span style={{ color: colors.muted }}> {period}</span>
       </p>
       <p style={{ margin: 0, color: colors.muted, fontSize: '0.9rem' }}>{note}</p>
@@ -38,7 +38,7 @@ function PlanCard({ name, price, period, note, highlight, children }: {
 
 const included = [
   'Daily AI check-ins that reflect your own words back',
-  'Pattern tracking over time',
+  'A record of your check-ins, in your own words',
   'Weekly reflections',
   'The practice space: exercises, intentions and post-session reflection',
   'Reminders at times you choose',
