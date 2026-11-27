@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { A, BusinessBlock, ContentPage, CrisisContacts, H2, P } from '../components/SiteShell';
-import { BUSINESS } from '../components/business';
+import { A, BusinessBlock, ContentPage, CrisisContacts, H2, P } from '@/app/components/SiteShell';
+import { BUSINESS } from '@/app/components/business';
 
 export const metadata: Metadata = {
   title: 'Contact | Seen',

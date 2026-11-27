@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
-import { A, Callout, ContentPage, H2, H3, P, UL, colors } from '../components/SiteShell';
-import { BUSINESS, LAST_UPDATED } from '../components/business';
+import { A, Callout, ContentPage, H2, H3, P, UL, colors } from '@/app/components/SiteShell';
+import { BUSINESS, LAST_UPDATED } from '@/app/components/business';
 
 export const metadata: Metadata = {
   title: 'Privacy policy | Seen',
   description: 'Who is responsible for your data in Seen, what we collect, who processes it and your rights.',
 };
 
-const cell = { padding: '10px 12px 10px 0', verticalAlign: 'top' as const, borderBottom: `1px solid ${colors.surfaceLight}` };
+const cell = { padding: '10px 12px 10px 0', verticalAlign: 'top' as const, borderBottom: `1px solid ${colors.line}` };
 
 const processors = [
   {
@@ -122,7 +122,7 @@ export default function PrivacyPage() {
             Processors that help run Seen
           </caption>
           <thead>
-            <tr style={{ color: colors.cream, textAlign: 'left' }}>
+            <tr style={{ color: colors.heading, textAlign: 'left' }}>
               <th style={cell}>Company</th>
               <th style={cell}>What it does</th>
               <th style={cell}>Where</th>
@@ -131,7 +131,7 @@ export default function PrivacyPage() {
           <tbody>
             {processors.map((p) => (
               <tr key={p.name}>
-                <td style={{ ...cell, color: colors.cream, fontWeight: 600 }}>{p.name}</td>
+                <td style={{ ...cell, color: colors.heading, fontWeight: 600 }}>{p.name}</td>
                 <td style={cell}>{p.role}</td>
                 <td style={cell}>{p.where}</td>
               </tr>

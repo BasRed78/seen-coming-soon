@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { A, ContentPage, H2, P, UL } from '../components/SiteShell';
-import { BUSINESS, LAST_UPDATED } from '../components/business';
+import { A, ContentPage, H2, P, UL } from '@/app/components/SiteShell';
+import { BUSINESS, LAST_UPDATED } from '@/app/components/business';
 
 export const metadata: Metadata = {
   title: 'Cookie policy | Seen',

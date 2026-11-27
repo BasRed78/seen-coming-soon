@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import { A, BusinessBlock, Callout, ContentPage, CrisisContacts, H2, P, UL } from '../components/SiteShell';
-import { BUSINESS, LAST_UPDATED, PRICES } from '../components/business';
+import { A, BusinessBlock, Callout, ContentPage, CrisisContacts, H2, P, UL } from '@/app/components/SiteShell';
+import { BUSINESS, LAST_UPDATED, PRICES } from '@/app/components/business';
 
 export const metadata: Metadata = {
   title: 'Terms of service | Seen',
